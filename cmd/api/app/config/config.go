@@ -2,7 +2,9 @@ package config
 
 import (
 	"encoding/json"
+	"errors"
 	"flag"
+	"github.com/kelseyhightower/envconfig"
 	"os"
 	"time"
 
@@ -10,30 +12,36 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+var ErrConfigFileIsNotSet = errors.New("empty config file")
+
 type Config struct {
-	Port        int        `yaml:"port" json:"port,omitempty"`
-	Loglevel    string     `yaml:"loglevel" json:"loglevel,omitempty"`
-	StoragePath string     `yaml:"storage_path" json:"storage_path,omitempty"`
+	Port        int        `yaml:"port" json:"port,omitempty" envconfig:"PORT"`
+	Loglevel    string     `yaml:"loglevel" json:"loglevel,omitempty" envconfig:"LOG_LEVEL"`
+	StoragePath string     `yaml:"storage_path" json:"storage_path,omitempty" envconfig:"STORAGE"`
 	AuthConfig  AuthConfig `yaml:"auth_config" json:"auth_config"`
 	DBConfig    DBConfig   `yaml:"db_config" json:"db_config"`
 }
 
 type AuthConfig struct {
-	JWTSecret string        `yaml:"jwt_secret" json:"-"`
-	JWTTTL    time.Duration `yaml:"jwt_ttl" json:"jwt_ttl,omitempty"`
+	JWTSecret string        `yaml:"jwt_secret" json:"-" envconfig:"JWT_SECRET"`
+	JWTTTL    time.Duration `yaml:"jwt_ttl" json:"jwt_ttl,omitempty" envconfig:"JWT_TTL"`
 }
 
 type DBConfig struct {
-	Host     string `yaml:"host" json:"host,omitempty"`
-	User     string `yaml:"user" json:"user,omitempty"`
-	Password string `yaml:"password" json:"-"`
-	DBName   string `yaml:"db_name" json:"db_name,omitempty"`
-	Port     int    `yaml:"port" json:"port"`
+	Host     string `yaml:"host" json:"host,omitempty" envconfig:"DB_HOST"`
+	User     string `yaml:"user" json:"user,omitempty" envconfig:"DB_USER"`
+	Password string `yaml:"password" json:"-" envconfig:"DB_PASSWORD"`
+	DBName   string `yaml:"db_name" json:"db_name,omitempty" envconfig:"DB_NAME"`
+	Port     int    `yaml:"port" json:"port" envconfig:"DB_PORT"`
 }
 
-func (c *Config) ReadFromFile(logger echo.Logger) {
+func (c *Config) ReadFromFile(logger echo.Logger) error {
 	configPath := flag.String("config", "", "path yo yaml config")
 	flag.Parse()
+
+	if *configPath == "" {
+		return ErrConfigFileIsNotSet
+	}
 
 	data, err := os.ReadFile(*configPath)
 	if err != nil {
@@ -47,4 +55,13 @@ func (c *Config) ReadFromFile(logger echo.Logger) {
 	//nolint:errcheck
 	jsn, _ := json.Marshal(c)
 	logger.Infof("have read config %s", string(jsn))
+
+	return nil
+}
+
+func (c *Config) ReadFromEnv(logger echo.Logger) {
+	err := envconfig.Process("", c)
+	if err != nil {
+		logger.Fatalf("failed to read config from env: %v", err)
+	}
 }

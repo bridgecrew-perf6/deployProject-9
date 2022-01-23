@@ -34,7 +34,9 @@ func App() {
 	server.Logger.SetLevel(echolog.INFO)
 
 	cfg := config.Config{}
-	cfg.ReadFromFile(server.Logger)
+	if err := cfg.ReadFromFile(server.Logger); err != nil {
+		cfg.ReadFromEnv(server.Logger)
+	}
 
 	server.Use(echoMiddlewares.Recover())
 	server.Use(echoMiddlewares.Logger())
