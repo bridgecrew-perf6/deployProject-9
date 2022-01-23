@@ -1,7 +1,7 @@
 package delivery
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/user"
+	"lesson9/internal/pkg/user"
 	"net/http"
 	"time"
 

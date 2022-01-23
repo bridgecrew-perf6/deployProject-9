@@ -1,6 +1,6 @@
 package usecase
 
-import "backendOneLessons/lesson4/internal/pkg/user"
+import "lesson9/internal/pkg/user"
 
 type inmemory struct {
 	repo user.Repository

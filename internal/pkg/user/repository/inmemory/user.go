@@ -1,8 +1,8 @@
 package inmemory
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/models"
-	"backendOneLessons/lesson4/internal/pkg/user"
+	"lesson9/internal/pkg/models"
+	"lesson9/internal/pkg/user"
 )
 
 type inmemory struct{}

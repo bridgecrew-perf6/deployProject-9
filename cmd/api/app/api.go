@@ -1,22 +1,23 @@
 package app
 
 import (
-	"backendOneLessons/lesson4/cmd/api/app/config"
-	"backendOneLessons/lesson4/internal/pkg/api/middlewares"
-	imageStore "backendOneLessons/lesson4/internal/pkg/image/storage/fs"
-	echoDelivery "backendOneLessons/lesson4/internal/pkg/item/delivery/echo"
-	itemPostgresRepo "backendOneLessons/lesson4/internal/pkg/item/repository/postgres"
-	itemUsecase "backendOneLessons/lesson4/internal/pkg/item/usecase"
-	userDelivery "backendOneLessons/lesson4/internal/pkg/user/delivery"
-	userRepo "backendOneLessons/lesson4/internal/pkg/user/repository/inmemory"
-	user "backendOneLessons/lesson4/internal/pkg/user/usecase"
 	"context"
 	"fmt"
+	"lesson9/cmd/api/app/config"
+	"lesson9/internal/pkg/api/middlewares"
+	imageStore "lesson9/internal/pkg/image/storage/fs"
+	echoDelivery "lesson9/internal/pkg/item/delivery/echo"
+	itemPostgresRepo "lesson9/internal/pkg/item/repository/postgres"
+	itemUsecase "lesson9/internal/pkg/item/usecase"
+	userDelivery "lesson9/internal/pkg/user/delivery"
+	userRepo "lesson9/internal/pkg/user/repository/inmemory"
+	user "lesson9/internal/pkg/user/usecase"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+	// postgres driver
 
 	"github.com/jmoiron/sqlx"
 
@@ -24,7 +25,6 @@ import (
 	echoMiddlewares "github.com/labstack/echo/v4/middleware"
 	echolog "github.com/labstack/gommon/log"
 
-	// postgres driver
 	_ "github.com/lib/pq"
 
 	"github.com/prometheus/client_golang/prometheus/promauto"

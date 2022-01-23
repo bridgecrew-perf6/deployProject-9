@@ -1,9 +1,9 @@
 package echo
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/image"
-	"backendOneLessons/lesson4/internal/pkg/item"
-	statpkg "backendOneLessons/lesson4/pkg/stat"
+	"lesson9/internal/pkg/image"
+	"lesson9/internal/pkg/item"
+	statpkg "lesson9/pkg/stat"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"

@@ -1,9 +1,9 @@
 package middlewares
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/user"
-	"backendOneLessons/lesson4/internal/pkg/user/delivery"
 	"encoding/base64"
+	"lesson9/internal/pkg/user"
+	"lesson9/internal/pkg/user/delivery"
 	"strings"
 
 	"github.com/labstack/echo/v4"

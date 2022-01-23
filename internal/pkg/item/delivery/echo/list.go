@@ -1,7 +1,7 @@
 package echo
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/models"
+	"lesson9/internal/pkg/models"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

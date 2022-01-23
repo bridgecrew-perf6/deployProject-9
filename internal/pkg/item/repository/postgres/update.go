@@ -1,10 +1,10 @@
 package postgres
 
 import (
-	repomodels "backendOneLessons/lesson4/internal/pkg/item/repository/models"
-	"backendOneLessons/lesson4/internal/pkg/models"
 	"context"
 	"fmt"
+	repomodels "lesson9/internal/pkg/item/repository/models"
+	"lesson9/internal/pkg/models"
 )
 
 // Update - accept just full state. Partial update not accepted

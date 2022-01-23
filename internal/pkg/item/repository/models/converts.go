@@ -1,8 +1,8 @@
 package models
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/models"
 	"database/sql"
+	"lesson9/internal/pkg/models"
 )
 
 func ModelToRepoItem(item models.Item) Item {

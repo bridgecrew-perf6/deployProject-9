@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	contextUtils "backendOneLessons/lesson4/internal/pkg/context"
+	contextUtils "lesson9/internal/pkg/context"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"

@@ -1,9 +1,9 @@
 package usecase
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/models"
 	"context"
 	"fmt"
+	"lesson9/internal/pkg/models"
 )
 
 func (u usecase) List(ctx context.Context, filter models.ItemFilter) (models.ItemList, error) {

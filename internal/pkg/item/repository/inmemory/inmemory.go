@@ -1,9 +1,9 @@
 package inmemory
 
 import (
-	itempkg "backendOneLessons/lesson4/internal/pkg/item"
-	"backendOneLessons/lesson4/internal/pkg/models"
 	"context"
+	itempkg "lesson9/internal/pkg/item"
+	"lesson9/internal/pkg/models"
 )
 
 type repository struct {

@@ -1,10 +1,10 @@
 package fs
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/image"
-	statpkg "backendOneLessons/lesson4/pkg/stat"
 	"context"
 	"fmt"
+	"lesson9/internal/pkg/image"
+	statpkg "lesson9/pkg/stat"
 	"os"
 
 	"github.com/prometheus/client_golang/prometheus"

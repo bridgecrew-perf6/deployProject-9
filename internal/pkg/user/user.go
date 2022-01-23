@@ -1,7 +1,7 @@
 package user
 
 import (
-	"backendOneLessons/lesson4/internal/pkg/models"
+	"lesson9/internal/pkg/models"
 
 	"github.com/labstack/echo/v4"
 )

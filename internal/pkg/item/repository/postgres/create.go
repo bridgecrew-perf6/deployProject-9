@@ -1,10 +1,10 @@
 package postgres
 
 import (
-	repomodels "backendOneLessons/lesson4/internal/pkg/item/repository/models"
-	"backendOneLessons/lesson4/internal/pkg/models"
 	"context"
 	"fmt"
+	repomodels "lesson9/internal/pkg/item/repository/models"
+	"lesson9/internal/pkg/models"
 )
 
 func (r repository) Create(ctx context.Context, item *models.Item) error {
