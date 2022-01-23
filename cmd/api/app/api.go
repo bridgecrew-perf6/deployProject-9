@@ -7,7 +7,7 @@ import (
 	"lesson9/internal/pkg/api/middlewares"
 	imageStore "lesson9/internal/pkg/image/storage/fs"
 	echoDelivery "lesson9/internal/pkg/item/delivery/echo"
-	"lesson9/internal/pkg/item/repository/inmemory"
+	itemPostgresRepo "lesson9/internal/pkg/item/repository/postgres"
 	itemUsecase "lesson9/internal/pkg/item/usecase"
 	userDelivery "lesson9/internal/pkg/user/delivery"
 	userRepo "lesson9/internal/pkg/user/repository/inmemory"
@@ -18,6 +18,8 @@ import (
 	"syscall"
 	"time"
 	// postgres driver
+
+	"github.com/jmoiron/sqlx"
 
 	"github.com/labstack/echo/v4"
 	echoMiddlewares "github.com/labstack/echo/v4/middleware"
@@ -55,22 +57,15 @@ func App() {
 
 	authMiddleware := middlewares.JWTAuthMiddleware(cfg.AuthConfig.JWTSecret)
 
-	//db, err := sqlx.Open(
-	//	"postgres",
-	//	fmt.Sprintf("user=%s password=%s port=%d dbname=%s sslmode=disable host=%s",
-	//		cfg.DBConfig.User,
-	//		cfg.DBConfig.Password,
-	//		cfg.DBConfig.Port,
-	//		cfg.DBConfig.DBName,
-	//		cfg.DBConfig.Host,
-	//	),
-	//)
-	//if err != nil {
-	//	server.Logger.Fatalf("failed to open db connection %v", err)
-	//}
+	db, err := sqlx.Open(
+		"postgres",
+		cfg.DBConfig.DBUrl,
+	)
+	if err != nil {
+		server.Logger.Fatalf("failed to open db connection %v", err)
+	}
 
-	//itemsRepository := itemPostgresRepo.New(db, stat)
-	itemsRepository := inmemory.New()
+	itemsRepository := itemPostgresRepo.New(db, stat)
 
 	userRepository := userRepo.New()
 

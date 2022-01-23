@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"flag"
-	"github.com/kelseyhightower/envconfig"
 	"os"
 	"time"
 
+	"github.com/kelseyhightower/envconfig"
 	"github.com/labstack/echo/v4"
 	"gopkg.in/yaml.v3"
 )
@@ -28,6 +28,7 @@ type AuthConfig struct {
 }
 
 type DBConfig struct {
+	DBUrl    string `yaml:"db_url" json:"db_url,omitempty" envconfig:"DATABASE_URL"`
 	Host     string `yaml:"host" json:"host,omitempty" envconfig:"DB_HOST"`
 	User     string `yaml:"user" json:"user,omitempty" envconfig:"DB_USER"`
 	Password string `yaml:"password" json:"-" envconfig:"DB_PASSWORD"`
@@ -52,9 +53,7 @@ func (c *Config) ReadFromFile(logger echo.Logger) error {
 		logger.Fatalf("can't unmarshal config: %v", err)
 	}
 
-	//nolint:errcheck
-	jsn, _ := json.Marshal(c)
-	logger.Infof("have read config %s", string(jsn))
+	c.printInLog(logger)
 
 	return nil
 }
@@ -64,4 +63,12 @@ func (c *Config) ReadFromEnv(logger echo.Logger) {
 	if err != nil {
 		logger.Fatalf("failed to read config from env: %v", err)
 	}
+
+	c.printInLog(logger)
+}
+
+func (c *Config) printInLog(logger echo.Logger) {
+	//nolint:errcheck
+	jsn, _ := json.Marshal(c)
+	logger.Infof("have read config %s", string(jsn))
 }
