@@ -2,8 +2,8 @@ package middlewares
 
 import (
 	"encoding/base64"
-	"lesson9/internal/pkg/user"
-	"lesson9/internal/pkg/user/delivery"
+	"github.com/v-lozhkin/deployProject/internal/pkg/user"
+	"github.com/v-lozhkin/deployProject/internal/pkg/user/delivery"
 	"strings"
 
 	"github.com/labstack/echo/v4"

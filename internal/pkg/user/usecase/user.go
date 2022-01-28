@@ -1,6 +1,6 @@
 package usecase
 
-import "lesson9/internal/pkg/user"
+import "github.com/v-lozhkin/deployProject/internal/pkg/user"
 
 type inmemory struct {
 	repo user.Repository

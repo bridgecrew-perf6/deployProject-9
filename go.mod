@@ -1,4 +1,4 @@
-module lesson9
+module github.com/v-lozhkin/deployProject
 
 // +heroku goVersion go1.16
 go 1.16

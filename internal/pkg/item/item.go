@@ -3,7 +3,7 @@ package item
 import (
 	"context"
 	"errors"
-	"lesson9/internal/pkg/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

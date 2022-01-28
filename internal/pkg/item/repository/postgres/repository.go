@@ -1,8 +1,8 @@
 package postgres
 
 import (
-	"lesson9/internal/pkg/item"
-	statpkg "lesson9/pkg/stat"
+	"github.com/v-lozhkin/deployProject/internal/pkg/item"
+	statpkg "github.com/v-lozhkin/deployProject/pkg/stat"
 
 	"github.com/jmoiron/sqlx"
 	"github.com/prometheus/client_golang/prometheus"

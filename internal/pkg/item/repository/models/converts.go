@@ -2,7 +2,7 @@ package models
 
 import (
 	"database/sql"
-	"lesson9/internal/pkg/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 )
 
 func ModelToRepoItem(item models.Item) Item {

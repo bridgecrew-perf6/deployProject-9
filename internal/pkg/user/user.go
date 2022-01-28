@@ -1,7 +1,7 @@
 package user
 
 import (
-	"lesson9/internal/pkg/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 
 	"github.com/labstack/echo/v4"
 )

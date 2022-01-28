@@ -1,7 +1,7 @@
 package delivery
 
 import (
-	"lesson9/internal/pkg/user"
+	"github.com/v-lozhkin/deployProject/internal/pkg/user"
 	"net/http"
 	"time"
 
