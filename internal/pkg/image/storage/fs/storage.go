@@ -3,8 +3,8 @@ package fs
 import (
 	"context"
 	"fmt"
-	"lesson9/internal/pkg/image"
-	statpkg "lesson9/pkg/stat"
+	"github.com/v-lozhkin/deployProject/internal/pkg/image"
+	statpkg "github.com/v-lozhkin/deployProject/pkg/stat"
 	"os"
 
 	"github.com/prometheus/client_golang/prometheus"

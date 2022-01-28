@@ -1,8 +1,8 @@
 package inmemory
 
 import (
-	"lesson9/internal/pkg/models"
-	"lesson9/internal/pkg/user"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/user"
 )
 
 type inmemory struct{}

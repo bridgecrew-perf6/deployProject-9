@@ -2,8 +2,8 @@ package inmemory
 
 import (
 	"context"
-	itempkg "lesson9/internal/pkg/item"
-	"lesson9/internal/pkg/models"
+	itempkg "github.com/v-lozhkin/deployProject/internal/pkg/item"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 )
 
 type repository struct {

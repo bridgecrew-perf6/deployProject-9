@@ -2,7 +2,7 @@ package echo
 
 import (
 	"errors"
-	"lesson9/internal/pkg/item"
+	"github.com/v-lozhkin/deployProject/internal/pkg/item"
 
 	"github.com/labstack/echo/v4"
 )

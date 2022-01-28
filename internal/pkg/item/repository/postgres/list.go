@@ -3,8 +3,8 @@ package postgres
 import (
 	"context"
 	"fmt"
-	repomodels "lesson9/internal/pkg/item/repository/models"
-	"lesson9/internal/pkg/models"
+	repomodels "github.com/v-lozhkin/deployProject/internal/pkg/item/repository/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 	"strings"
 )
 

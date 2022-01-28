@@ -1,6 +1,6 @@
 package main
 
-import "lesson9/cmd/api/app"
+import "github.com/v-lozhkin/deployProject/cmd/api/app"
 
 func main() {
 	app.App()

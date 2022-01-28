@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 	"fmt"
-	"lesson9/internal/pkg/models"
+	"github.com/v-lozhkin/deployProject/internal/pkg/models"
 )
 
 func (u usecase) List(ctx context.Context, filter models.ItemFilter) (models.ItemList, error) {

@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	contextUtils "lesson9/internal/pkg/context"
+	contextUtils "github.com/v-lozhkin/deployProject/internal/pkg/context"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
