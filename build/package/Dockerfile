@@ -8,6 +8,5 @@ RUN go build -o /build/bin/api ./cmd/api
 FROM centos:7
 
 COPY --from=builder /build/bin/api /build/bin/api
-COPY configs/api.yaml /etc/api.yaml
 
-ENTRYPOINT ["/build/bin/api", "--config=/etc/api.yaml"]
+ENTRYPOINT ["/build/bin/api"]
